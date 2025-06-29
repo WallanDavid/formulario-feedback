@@ -1,12 +1,12 @@
 # 📬 Plugin WordPress – Formulário de Feedback
 
-Plugin WordPress que exibe um formulário simples via shortcode e salva os feedbacks em uma tabela personalizada no banco de dados.
+Plugin WordPress que exibe um formulário com nome, e-mail e mensagem via shortcode, salva os dados no banco e permite visualizar os feedbacks recebidos no painel administrativo.
 
 ---
 
 ## 🚀 Como Usar
 
-1. Faça upload da pasta do plugin ou envie o `.zip` no painel do WordPress.
+1. Faça upload da pasta do plugin ou envie o `.zip` pelo painel do WordPress.
 2. Ative o plugin.
 3. Em qualquer post ou página, insira este shortcode:
 
@@ -14,16 +14,21 @@ Plugin WordPress que exibe um formulário simples via shortcode e salva os feedb
 [form_feedback]
 ```
 
-4. Os feedbacks são salvos automaticamente na tabela `wp_feedbacks`.
+4. Os feedbacks serão salvos automaticamente na tabela `wp_feedbacks`.
+
+5. Para visualizar os feedbacks, acesse o menu **"Feedbacks"** no painel do WordPress.
 
 ---
 
 ## 💡 Funcionalidades
 
+- Formulário com campos de **nome**, **e-mail** e **mensagem**
 - Cria tabela no banco ao ativar (`wp_feedbacks`)
-- Salva mensagens com `sanitize_text_field()` para evitar injeções
-- Usa `$wpdb` para operações seguras no banco
-- Simples e funcional, ideal pra coletar sugestões, comentários e opiniões
+- Usa `sanitize_text_field()`, `sanitize_email()` e `sanitize_textarea_field()` para segurança
+- **Honeypot invisível** para bloqueio de bots e spam
+- Salva feedbacks com data de envio
+- Interface administrativa com listagem dos dados no painel (`add_menu_page`)
+- Sem dependências externas, leve e funcional
 
 ---
 
@@ -31,8 +36,9 @@ Plugin WordPress que exibe um formulário simples via shortcode e salva os feedb
 
 - PHP
 - WordPress Shortcodes
-- Banco de dados (`$wpdb`)
-- Segurança básica com `sanitize_text_field()`
+- `$wpdb` para acesso ao banco de dados
+- Painel admin com `add_menu_page()`
+- Segurança com validações e sanitização
 
 ---
 
@@ -42,4 +48,6 @@ Desenvolvido por [Wallan Peixoto](https://github.com/WallanDavid)
 
 ---
 
-## ⭐ Achou útil? Deixa aquela estrela no repositório 😉
+## ⭐ Curtiu o plugin?
+
+Se achou útil, deixa uma estrela no repositório e compartilha com a comunidade 😉
